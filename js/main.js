@@ -1,6 +1,8 @@
 //alert("funcionou");
 
 function consultaCep(){
+    $(".barra-progresso").show();
+
     var cep = document.getElementById("cep").value;
     var url = "https://viacep.com.br/ws/" +  cep + "/json/";
     
@@ -16,6 +18,14 @@ function consultaCep(){
            $("#localidade").html(response.localidade);
            $("#bairro").html(response.bairro);
            $("#titulo_cep").html("cep " + response.cep);
+           $(".cep").show();
+           $(".barra-progresso").hide();
+
         }
     })
 }
+
+$(function (){
+    $(".cep").hide();
+    $(".barra-progresso").hide();
+})
